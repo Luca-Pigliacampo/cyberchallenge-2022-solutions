@@ -40,12 +40,14 @@ long long int conta(int N, int K, long long int **ranges) {
 		    count--;
 		    inde++;
 	    }
-	    if(inds>=N)
-		    next = ends[inde];
-	    else if(inde>=N)
-		    next = starts[inds];
-	    else
+	    if(inds<N && inde<N)
 		    next = starts[inds]<ends[inde]?starts[inds]:ends[inde];
+	    else if(inds<N)
+		    next = starts[inds];
+	    else if(inde<N)
+		    next = ends[inde];
+	    else
+		    next = n;
 	    change = next-n;
 	    if(count==K){
 		    res += change;
